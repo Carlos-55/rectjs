@@ -1,38 +1,32 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+
 import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
-    return ( <
-        aside className = "journal__sidebar" >
 
-        <
-        div className = "journal__sidebar-navbar" >
-        <
-        h3 className = "mt-5" >
-        <
-        i className = "far fa-moon" > < /i> <
-        span > Carlos < /span> <
-        /h3>
+    const dispatch = useDispatch();
 
-        <
-        button className = "btn" >
-        Logout <
-        /button> <
-        /div>
+    const handleLogout = () => {
+        console.log('logout');
+    }   
+    
+    return ( <aside className = "journal__sidebar">
+        <div className = "journal__sidebar-navbar" >
+            <h3 className = "mt-5" >
+                <i className = "far fa-moon"></i> 
+                <span> Carlos </span> 
+            </h3>
 
-        <
-        div className = "journal__new-entry" >
-        <
-        i className = "far fa-calendar-plus fa-5x" > < /i> <
-        p className = "mt-5" >
-        New entry <
-        /p> <
-        /div>
+            <button onClick={handleLogout} className="btn">Logout </button> 
+        </div>
 
-        <
-        JournalEntries / >
+        <div className = "journal__new-entry" >
+            <i className = "far fa-calendar-plus fa-5x" ></i> 
+            <p className = "mt-5" > New entry </p> 
+        </div>
 
-        <
-        /aside>
+        <JournalEntries / >
+        </aside>
     )
 }
